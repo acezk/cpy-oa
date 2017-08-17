@@ -2,8 +2,65 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.acezk.oa.dao.sys.UserDao">
 
-	<select id="selectUserList" parameterType="com.acezk.oa.entity.sys.User" resultType="com.acezk.oa.entity.sys.User">
+	<select id="queryUserAll" parameterType="com.acezk.oa.entity.sys.User" resultType="com.acezk.oa.entity.sys.User">
 		select * from user
 	</select>
+	
+	<select id="queryUserById" resultType="com.acezk.oa.entity.sys.User">
+		select * from user where id = #{id}
+	</select>
+	
+	<insert id="insertUser" parameterType="com.acezk.oa.entity.sys.User" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO `user` (
+			loginName, `password`, `name`, sex, age, entryDate, image, TXQQ, phone, birthday, createTime, updateTime, deptId
+		) VALUES (
+			#{loginName}, #{password}, #{name}, #{sex}, #{age}, #{entryDate}, #{image}, #{TXQQ}, #{phone}, #{birthday}, now(), null, #{deptId}
+		)
+	</insert>
+	
+	<update id="updateUser" parameterType="com.acezk.oa.entity.sys.User">
+		UPDATE `user`
+		<set>
+			<if test="loginName != null">
+				loginName = #{loginName},
+			</if>
+			<if test="password != null">
+				password = #{password},
+			</if>
+			<if test="name != null">
+				name = #{name},
+			</if>
+			<if test="sex != null">
+				sex = #{sex},
+			</if>
+			<if test="age != null">
+				age = #{age},
+			</if>
+			<if test="entryDate != null">
+				entryDate = #{entryDate},
+			</if>
+			<if test="image != null">
+				image = #{image},
+			</if>
+			<if test="TXQQ != null">
+				TXQQ = #{TXQQ},
+			</if>
+			<if test="phone != null">
+				phone = #{phone},
+			</if>
+			<if test="birthday != null">
+				birthday = #{birthday},
+			</if>
+			<if test="deptId != null">
+				deptId = #{deptId},
+			</if>
+			updateTime = now()
+		</set>
+		WHERE id = #{id}
+	</update>
+	
+	<delete id="deleteUserById">
+		DELETE FROM `user` WHERE id = #{id}
+	</delete>
 	
 </mapper>
