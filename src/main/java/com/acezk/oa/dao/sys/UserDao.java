@@ -1,8 +1,11 @@
 package com.acezk.oa.dao.sys;
 
+import java.util.List;
+
 import com.acezk.oa.entity.sys.User;
 
 public interface UserDao {
 	
-	User selectUserList(User u);
+	List<User> selectUserList(User u);
+	
 }
