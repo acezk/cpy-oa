@@ -18,7 +18,7 @@ public class User {
 	
 	private String image;
 	
-	private String qq;
+	private String TXQQ;
 	
 	private String phone;
 	
@@ -94,14 +94,6 @@ public class User {
 		this.image = image;
 	}
 
-	public String getQq() {
-		return qq;
-	}
-
-	public void setQq(String qq) {
-		this.qq = qq;
-	}
-
 	public String getPhone() {
 		return phone;
 	}
@@ -141,7 +133,13 @@ public class User {
 	public void setDeptId(Integer deptId) {
 		this.deptId = deptId;
 	}
-	
-	
+
+	public String getTXQQ() {
+		return TXQQ;
+	}
+
+	public void setTXQQ(String tXQQ) {
+		TXQQ = tXQQ;
+	}
 
 }
