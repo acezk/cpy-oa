@@ -8,7 +8,7 @@ CREATE TABLE user (
   age int(3) DEFAULT NULL COMMENT '年龄',
   entryDate date DEFAULT NULL COMMENT '入职日期',
   image varchar(50) DEFAULT NULL COMMENT '头像',
-  qq varchar(20) DEFAULT NULL COMMENT 'qq',
+  TXQQ varchar(20) DEFAULT NULL COMMENT 'TXQQ',
   phone varchar(11) DEFAULT NULL COMMENT '手机号码',
   birthday date DEFAULT NULL COMMENT '生日',
   createTime datetime DEFAULT NULL COMMENT '创建日期',
